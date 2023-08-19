@@ -1,0 +1,11 @@
+.centerText {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.centerDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
