@@ -1,4 +1,4 @@
-import Table from "../components/Component2";
+import Table from "../components/Display.component";
 import { useState } from 'react';
 import axios from "axios";
 

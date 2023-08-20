@@ -1,4 +1,4 @@
-import Form from "../components/Component1";
+import Form from "../components/Upload.component";
 
 function Upload() {
     return (
