@@ -35,7 +35,7 @@ function Component() {
         var store = value;
          
         if(name === "todos" && lastChar === ";") {
-            setTodos(todos.concat([store.replace(lastChar, " ")]))
+            setTodos(todos.concat([store.replace(lastChar, "")]))
             setInputs(values => ({...values, [name]: ""}))
  
         } else {
@@ -129,8 +129,20 @@ function Component() {
                         name="todos" 
                         onChange={handleChange}
                         ></textarea>
-                        <p onClick={handleTodos} className="text-muted">{todos}</p>
-                        {/* <p>{findEmployee(inputs.identifier).username}</p> */}
+                        {/* will make the following a child component */}
+                        <p>
+                            {
+                                todos.map
+                                (
+                                    a_todo =>
+                                        <span onClick={handleTodos} 
+                                            className="text-muted rounded bg-primary fit-content"
+                                            >{ a_todo }
+                                        </span> 
+                                )
+                            }
+                        </p>
+                         
                     <button 
                         type="submit" 
                         className="btn btn-outline-success"

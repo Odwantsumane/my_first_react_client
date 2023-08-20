@@ -38,3 +38,8 @@ span {
     height: 45px;
     margin: 6px;
   }
+
+.fit-content {
+    padding: 1%;
+    width: fit-content;
+}

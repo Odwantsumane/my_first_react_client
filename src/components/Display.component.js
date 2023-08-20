@@ -29,7 +29,23 @@ function  Comp2(props) {
                                 <td> { item.country }</td>
                                 <td> { item.continent }</td>
                                 <td> { item.race} </td>
-                                <td><button type="button" className="btn btn-outline-info dropdown-toggle">Tasks</button></td>
+                                <td>
+                                    {/* will create a child component to do this later */}
+                                    <div className="dropdown m-2">
+                                        <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                            Tasks
+                                        </button>
+                                        
+                                        <ul className="dropdown-menu">
+                                            
+                                            {
+                                                item.empTodos.map(todo =>
+                                                    <li><a className="dropdown-item" href="/">{ todo }</a></li>
+                                                )
+                                            }
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                               
                         )
