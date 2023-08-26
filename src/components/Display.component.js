@@ -40,14 +40,13 @@ function  Comp2(props) {
                                             
                                             {
                                                 item.empTodos.map(todo =>
-                                                    <li><a className="dropdown-item" href="/">{ todo }</a></li>
+                                                    <li className="dropdown-item"><input type="checkbox" />  { todo }</li>
                                                 )
                                             }
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-                              
+                            </tr> 
                         )
                     }
                 </tbody>

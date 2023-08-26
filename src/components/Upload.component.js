@@ -10,10 +10,10 @@ const employeeIds = {
 }
 
 const employeeInfo = [
-    {"id": "1234", "username": "Odwa", "email": "odwa@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Brown", "empTodos": []},
-    {"id": "1357", "username": "Philani", "email": "philani@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Yellow", "empTodos": []},
-    {"id": "1471", "username": "Aphelele", "email": "aphelele@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Orange", "empTodos": []},
-    {"id": "1593", "username": "Nolizwi", "email": "nolizwi@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Pink", "empTodos": []}
+    {"id": "1234", "username": "Odwa Ntsumane", "email": "odwa@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Brown", "empTodos": []},
+    {"id": "1357", "username": "Philani Bangani", "email": "philani@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Yellow", "empTodos": []},
+    {"id": "1471", "username": "Aphelele Mahlekelele", "email": "aphelele@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Orange", "empTodos": []},
+    {"id": "1593", "username": "Nolizwi Mjokane", "email": "nolizwi@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Pink", "empTodos": []}
 ]
 
 function Component() {
@@ -24,6 +24,7 @@ function Component() {
     var employeeDetails;
 
     const handleTodos = () => {
+        // will have to change this to delete a specific todo
         setTodos(todos.slice(1,todos.length))
     }
 
@@ -51,7 +52,7 @@ function Component() {
             axios.post(USERS_REST_API_URL,UpdateTodo(inputs.identifier))
                 .then(
                 function(response) {
-                    setUpdateStatus(true)
+                    setUpdateStatus(true);
                 }).catch(function(error)
                 {
                     alert("Server error: check console for more info")
