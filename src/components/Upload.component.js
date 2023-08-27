@@ -16,11 +16,14 @@ const employeeInfo = [
     {"id": "1593", "username": "Nolizwi Mjokane", "email": "nolizwi@gmail.com", "country": "South Africa", "continent": "Africa", "race": "Pink", "empTodos": []}
 ]
 
+var count = 1;
+
 function Component() {
     const [inputs, setInputs] = useState({});
     const [updateStatus, setUpdateStatus] = useState(false);
     const [unSuccessful, setFailedStatus] = useState(false);
     const [todos, setTodos] = useState([]);
+    const [idEntered, setIdEntered] = useState(true);
     var employeeDetails;
 
     const handleTodos = () => {
@@ -35,13 +38,24 @@ function Component() {
         var lastChar = value.substring(value.length - 1, value.length);
         var store = value;
          
-        if(name === "todos" && lastChar === ";") {
-            setTodos(todos.concat([store.replace(lastChar, "")]))
-            setInputs(values => ({...values, [name]: ""}))
- 
+         
+        if(name === "todos") {
+            if (inputs.identifier) {
+                setIdEntered(true);
+                if (lastChar === ";") {
+                    const newTodo = {"id": inputs.identifier + `${count++}`, "title": store.replace(lastChar, ""), "done": false};
+
+                    setTodos(todos.concat([newTodo]));
+                    setInputs(values => ({...values, [name]: ""}))
+                } else {
+                    setInputs(values => ({...values, [name]: value}));
+                }
+            }else {
+                setIdEntered(false);
+            }
         } else {
-           setInputs(values => ({...values, [name]: value}))
-        }   
+           setInputs(values => ({...values, [name]: value}));
+        }  
     }
 
     const handleSubmit = (e) => {
@@ -81,7 +95,7 @@ function Component() {
         findEmployee(id);
         pushTodos();
 
-        console.log(employeeDetails);
+        // console.log(employeeDetails);
         return  employeeDetails;
     }
 
@@ -121,6 +135,12 @@ function Component() {
                         onChange={handleChange}
                         required
                     />
+                    {
+                        !idEntered ? <p style={{ textAlign:"center", color:"red", margin: "0px", padding: "0px"}}>Please enter id first</p>
+                        :
+                        <p></p>
+                    }
+                    
                     <textarea 
                         className="form-control m-2" 
                         type="text"
@@ -138,7 +158,7 @@ function Component() {
                                     a_todo =>
                                         <span onClick={handleTodos} 
                                             className="text-muted rounded bg-primary fit-content"
-                                            >{ a_todo }
+                                            >{ a_todo.title }
                                         </span> 
                                 )
                             }

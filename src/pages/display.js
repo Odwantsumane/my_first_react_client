@@ -16,7 +16,7 @@ function Display() {
                  
             }).catch(function(error)
             {
-                alert(error)
+                console.log(error);
             });
     }
     handleDatabase();
