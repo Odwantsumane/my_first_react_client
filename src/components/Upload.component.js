@@ -156,7 +156,7 @@ function Component() {
                                 todos.map
                                 (
                                     a_todo =>
-                                        <span onClick={handleTodos} 
+                                        <span onClick={handleTodos} key={a_todo.id}
                                             className="text-muted rounded bg-primary fit-content"
                                             >{ a_todo.title }
                                         </span> 

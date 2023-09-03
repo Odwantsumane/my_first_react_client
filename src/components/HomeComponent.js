@@ -33,7 +33,7 @@ function HomeComp( props ) {
                                         {
                                             employee.empTodos.map(
                                                 todo => 
-                                                    <li className='dropdown-item'><input type="checkbox" name='' /> { todo.title }</li>
+                                                    <li className='dropdown-item' key={todo.id}><input type="checkbox" name='' /> { todo.title }</li>
                                             )
                                             
                                         }   
